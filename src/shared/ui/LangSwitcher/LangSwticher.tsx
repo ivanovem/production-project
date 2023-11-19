@@ -10,7 +10,7 @@ interface LangSwticherProps {
 }
 
 export const LangSwticher = ({className}: LangSwticherProps) => {
-    const { t, i18n } = useTranslation();
+    const { t, i18n } = useTranslation('language');
 
     const toggle = () =>{
         i18n.changeLanguage(i18n.language === "ru" ? "en" : "ru");
