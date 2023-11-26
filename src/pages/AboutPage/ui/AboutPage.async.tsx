@@ -1,7 +1,7 @@
-import {lazy} from "react";
+import { lazy } from 'react'
 
-// @ts-ignore
-export const AboutPageAsync = lazy(() => import('./AboutPage'));
+// @ts-expect-error
+export const AboutPageAsync = lazy(async () => await import('./AboutPage'))
 //
 // export const AboutPageAsync = lazy(() => new Promise((resolve) =>{
 //     //@ts-ignore
