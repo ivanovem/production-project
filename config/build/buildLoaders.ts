@@ -1,20 +1,19 @@
-import webpack from "webpack";
-import config from "../../webpack.config";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import {BuildOptions} from "./types/config";
+import type webpack from 'webpack'
+import config from '../../webpack.config'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import { type BuildOptions } from './types/config'
 
-export function buildLoaders({isDev}: BuildOptions):webpack.RuleSetRule[] {
-
-    const svgLoader = {
+export function buildLoaders ({ isDev }: BuildOptions): webpack.RuleSetRule[] {
+  const svgLoader = {
         test: /\.svg$/,
-        use: ['@svgr/webpack'],
-    }
+        use: ['@svgr/webpack']
+  }
 
     const babelLoader = {
         test: /\.(js|jsx|tsx)$/,
         exclude: /node_modules/,
         use: {
-            loader: "babel-loader",
+            loader: 'babel-loader',
             options: {
                 presets: ['@babel/preset-env'],
                 "plugins": [
@@ -30,14 +29,14 @@ export function buildLoaders({isDev}: BuildOptions):webpack.RuleSetRule[] {
         }
     }
 
-    const cssLoader =  {
+    const cssLoader = {
         test: /\.s[ac]ss$/i,
         use: [
             // Creates `style` nodes from JS strings
             isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
             // Translates CSS into CommonJS
             {
-                loader: "css-loader",
+                loader: 'css-loader',
                 options: {
                     modules: {
                         auto: (resPath: string) => Boolean(resPath.includes('.module.')),
@@ -52,21 +51,21 @@ export function buildLoaders({isDev}: BuildOptions):webpack.RuleSetRule[] {
             "sass-loader",
         ],
     }
-    //Если не используем тайпскрипт - нужен babel-loader
-    const typescriptLoader =  {
-            test: /\.tsx?$/,
-            use: 'ts-loader',
-            exclude: /node_modules/,
-        }
+    // Если не используем тайпскрипт - нужен babel-loader
+    const typescriptLoader = {
+    test: /\.tsx?$/,
+    use: 'ts-loader',
+    exclude: /node_modules/
+    }
 
-     const fileLoader = {
-         test: /\.(png|jpe?g|gif|woff2|woff)$/i,
-         use: [
-             {
-                 loader: 'file-loader',
-             },
-         ],
-     }
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+    use: [
+      {
+        loader: 'file-loader'
+            },
+    ],
+  }
 
     return [
         fileLoader,

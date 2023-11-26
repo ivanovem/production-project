@@ -13,9 +13,9 @@ import { Sidebar } from 'widgets/Sidebar'
 import { useTranslation } from 'react-i18next'
 
 const App = () => {
-  const { theme } = useTheme()
+    const { theme } = useTheme()
 
-  return (
+    return (
         <div className={classNames('app', {}, [theme])}>
             <Suspense fallback="">
                 <Navbar/>
@@ -27,7 +27,7 @@ const App = () => {
 
             {/* <button onClick={toggleTheme }>TOGGLE</button> */}
         </div>
-  )
+    )
 }
 
 export default App
