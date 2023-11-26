@@ -47,6 +47,7 @@ module.exports = {
         'react/function-component-definition': 'off',
         'no-shadow': 'off',
         '@typescript-eslint/prefer-nullish-coalescing': 'off',
-        '@typescript-eslint/strict-boolean-expressions': 'off'
+        '@typescript-eslint/strict-boolean-expressions': 'off',
+        'no-underscore-dangle': 'off'
     }
 }
