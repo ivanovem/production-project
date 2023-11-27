@@ -30,7 +30,11 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
         const { children } = this.props
         if (hasError) {
             // You can render any custom fallback UI
-            return <Suspense fallback=''><ErrorPage/></Suspense>
+            return (
+                <Suspense fallback=''>
+                    <ErrorPage/>
+                </Suspense>
+            )
         }
 
         return children

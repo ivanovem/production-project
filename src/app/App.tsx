@@ -14,11 +14,7 @@ import { useTranslation } from 'react-i18next'
 
 const App = () => {
     const { theme } = useTheme()
-    useEffect(() => {
-        // if (Math.random()<0.5) {
-        throw new Error()
-        // }
-    })
+
     return (
         <div className={classNames('app', {}, [theme])}>
             <Suspense fallback="">
