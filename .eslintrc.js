@@ -14,8 +14,12 @@ module.exports = {
                 node: true
             },
             files: [
-                '.eslintrc.{js,cjs}'
+                '.eslintrc.{js,cjs}',
+                '**/src/**/*.test.{ts,tsx}'
             ],
+            rules: {
+                'i18next/no-literal-string': 'off'
+            },
             parserOptions: {
                 sourceType: 'script'
             }
@@ -48,6 +52,7 @@ module.exports = {
         'no-shadow': 'off',
         '@typescript-eslint/prefer-nullish-coalescing': 'off',
         '@typescript-eslint/strict-boolean-expressions': 'off',
-        'no-underscore-dangle': 'off'
+        'no-underscore-dangle': 'off',
+        'i18next/no-literal-string': ['error', { markupOnlu: true, ignoreAttribute: ['data-testid'] }]
     }
 }
