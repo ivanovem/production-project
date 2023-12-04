@@ -3,6 +3,8 @@ import React from 'react'
 
 import { Button, ThemeButton } from './Button'
 import 'app/styles/index.scss'
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import { Theme } from 'app/providers/ThemeProvider'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -43,3 +45,11 @@ export const Outline: Story = {
         theme: ThemeButton.OUTLINE
     }
 }
+
+export const OutlineDark: Story = {
+    args: {
+        children: 'Text',
+        theme: ThemeButton.OUTLINE
+    }
+}
+OutlineDark.decorators = [ThemeDecorator(Theme.DARK)]
