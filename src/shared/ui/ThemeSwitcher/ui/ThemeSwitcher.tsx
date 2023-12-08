@@ -7,6 +7,7 @@ import React from 'react'
 
 interface ThemeSwitcherProps {
     className?: string
+    backgroundColor?: string
 }
 
 export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {

@@ -7,6 +7,7 @@ import {Button} from "shared/ui/Button/Button";
 
 interface SidebarProps {
     className?: string
+    backgroundColor?: string
 }
 
 export const Sidebar = ({ className }: SidebarProps) => {

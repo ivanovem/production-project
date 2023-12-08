@@ -7,6 +7,7 @@ import React from 'react'
 
 interface ErrorPageProps {
     className?: string
+    backgroundColor?: string
 }
 
 export const ErrorPage = ({ className }: ErrorPageProps) => {

@@ -4,7 +4,8 @@ import { useTranslation } from 'react-i18next'
 import React from 'react'
 
 interface NotFoundPageProps {
-    className?: string
+    className?: string,
+    backgroundColor?: string
 }
 
 export const NotFoundPage = ({ className }: NotFoundPageProps) => {
