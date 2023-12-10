@@ -5,9 +5,10 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 
 interface LangSwticherProps {
     className?: string
+    short?: boolean
 }
 
-export const LangSwticher = ({ className }: LangSwticherProps) => {
+export const LangSwticher = ({ className, short }: LangSwticherProps) => {
     const { t, i18n } = useTranslation('language')
 
     const toggle = () => {
@@ -19,7 +20,7 @@ export const LangSwticher = ({ className }: LangSwticherProps) => {
             theme={ButtonTheme.CLEAR}
             onClick={toggle}
         >
-            {t('Язык')}
+            {t(short ? 'Короткий язык' : 'Язык')}
         </Button>
     )
 }
