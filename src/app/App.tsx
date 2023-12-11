@@ -11,14 +11,19 @@ import AppRouter from 'app/providers/router/ui/AppRouter'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
 import { useTranslation } from 'react-i18next'
+import {Modal} from "shared/ui/Modal/Modal";
 
 const App = () => {
     const { theme } = useTheme()
+
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <div className={classNames('app', {}, [theme])}>
             <Suspense fallback="">
                 <Navbar/>
+                <button onClick={()=>{setIsOpen(true)}}>toggle</button>
+                <Modal isOpen={isOpen} onClose={()=>setIsOpen(false)}/>
                 <div className="content-page">
                     <Sidebar/>
                     <AppRouter/>
