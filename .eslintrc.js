@@ -12,10 +12,11 @@ module.exports = {
             },
             files: [
                 '.eslintrc.{js,cjs}',
-                '**/src/**/*.test.{ts,tsx}'
+                '**/src/**/*.{test,stories}.{ts,tsx}'
             ],
             rules: {
-                'i18next/no-literal-string': 'off'
+                'i18next/no-literal-string': 'off',
+                'max-len': 'off'
             },
             parserOptions: {
                 sourceType: 'script'
