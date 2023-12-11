@@ -1,16 +1,11 @@
-import React, { useContext, useState, Suspense, useEffect } from 'react'
+import React, { useState, Suspense } from 'react'
 
 import './styles/index.scss'
-import { Link, Route, Routes } from 'react-router-dom'
-import AboutPage from '../pages/AboutPage/ui/AboutPage'
-import MainPage from '../pages/MainPage/ui/MainPage'
-import { Theme, ThemeContext } from './providers/ThemeProvider/lib/ThemeContext'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useTheme } from './providers/ThemeProvider'
 import AppRouter from 'app/providers/router/ui/AppRouter'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
-import { useTranslation } from 'react-i18next'
 import {Modal} from "shared/ui/Modal/Modal";
 
 const App = () => {
@@ -23,7 +18,9 @@ const App = () => {
             <Suspense fallback="">
                 <Navbar/>
                 <button onClick={()=>{setIsOpen(true)}}>toggle</button>
-                <Modal isOpen={isOpen} onClose={()=>setIsOpen(false)}/>
+                <Modal isOpen={isOpen} onClose={()=>setIsOpen(false)}>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A doloribus eveniet expedita laborum, minus nobis odit temporibus tenetur totam vitae.
+                </Modal>
                 <div className="content-page">
                     <Sidebar/>
                     <AppRouter/>

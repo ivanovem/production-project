@@ -31,7 +31,10 @@ module.exports = {
         sourceType: 'module'
     },
     plugins: [
-        'react'
+        'react',
+        '@typescript-eslint',
+        'i18next',
+        'react-hooks'
     ],
     rules: {
         'react/jsx-indent': [2, 4, {}],
@@ -50,6 +53,8 @@ module.exports = {
         '@typescript-eslint/prefer-nullish-coalescing': 'off',
         '@typescript-eslint/strict-boolean-expressions': 'off',
         'no-underscore-dangle': 'off',
-        'i18next/no-literal-string': ['error', { markupOnlu: true, ignoreAttribute: ['data-testid'] }]
+        'i18next/no-literal-string': ['error', { markupOnlu: true, ignoreAttribute: ['data-testid'] }],
+        "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+        "react-hooks/exhaustive-deps": "error" // Checks effect dependencies
     }
 }
