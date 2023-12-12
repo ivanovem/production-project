@@ -8,6 +8,7 @@ import React from "react";
 
 interface ModalProps {
     className?: string;
+    backgroundColor?: string;
     children?: ReactNode;
     isOpen?: boolean;
     onClose?: ()=> void
