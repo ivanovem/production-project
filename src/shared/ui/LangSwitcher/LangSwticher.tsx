@@ -9,7 +9,7 @@ interface LangSwticherProps {
 }
 
 export const LangSwticher = ({ className, short }: LangSwticherProps) => {
-    const { t, i18n } = useTranslation('language')
+    const { t, i18n } = useTranslation('')
 
     const toggle = () => {
         i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
@@ -20,7 +20,7 @@ export const LangSwticher = ({ className, short }: LangSwticherProps) => {
             theme={ButtonTheme.CLEAR}
             onClick={toggle}
         >
-            {t(short ? 'Короткий язык' : 'Язык')}
+            {t(short ? 'Короткий язык' : 'Язык' )}
         </Button>
     )
 }
