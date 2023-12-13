@@ -26,22 +26,17 @@ export const Modal = (props: ModalProps) => {
     } = props;
 
     const [isClosing, setIsClosing] = useState(false)
-    const timerRef = useRef <ReturnType <typeof window.setTimeout> >()
+    const timerRef = useRef <ReturnType <typeof setTimeout>>()
 
     const {theme} = useTheme();
 
     const closeHandler =useCallback( () => {
         if(onClose) {
             setIsClosing(true)
-            //Эта часть почему-то не заработала, тип setTimeout не определился
-            // timerRef.current = setTimeout(() => {
-            //     onClose();
-            //     setIsClosing(false)
-            // }, ANIMATION_DELAY)
-         setTimeout(() => {
-                    onClose();
-                    setIsClosing(false)
-                }, ANIMATION_DELAY)
+            timerRef.current = setTimeout(() => {
+                onClose();
+                setIsClosing(false)
+            }, ANIMATION_DELAY)
         }
     },[onClose])
 
