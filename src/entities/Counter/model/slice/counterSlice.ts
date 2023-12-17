@@ -1,10 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
+import {CounterSchema} from "../types/counterSchema";
+
+const initialState: CounterSchema = {
+    value: 0
+}
 
 export const counterSlice = createSlice({
     name: 'counter',
-    initialState: {
-        value: 0
-    },
+    initialState: initialState,
     reducers: {
         increment: state => {
             state.value += 1
