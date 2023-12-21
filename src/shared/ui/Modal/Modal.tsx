@@ -11,7 +11,8 @@ interface ModalProps {
     backgroundColor?: string;
     children?: ReactNode;
     isOpen?: boolean;
-    onClose?: ()=> void
+    onClose?: ()=> void;
+    lazy?: boolean;
 }
 
 const ANIMATION_DELAY = 300
@@ -22,13 +23,20 @@ export const Modal = (props: ModalProps) => {
         className,
         children,
         isOpen,
-        onClose
+        onClose,
+        lazy
     } = props;
 
     const [isClosing, setIsClosing] = useState(false)
+    const [isMounted, setIsMounted] = useState(false)
     const timerRef = useRef <ReturnType <typeof setTimeout>>()
-
     const {theme} = useTheme();
+
+    useEffect(()=> {
+        if(isOpen) {
+            setIsMounted(true)
+        }
+    }, [isOpen])
 
     const closeHandler =useCallback( () => {
         if(onClose) {
@@ -63,6 +71,10 @@ export const Modal = (props: ModalProps) => {
 
     const onContentClick = (e:React.MouseEvent) => {
         e.stopPropagation()
+    }
+
+    if (lazy&& !isMounted) {
+        return null
     }
 
     return (
