@@ -5,7 +5,7 @@ const initialState:UserSchema  = {
 
 }
 
-export const userSlice: UserSchema = createSlice({
+export const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
