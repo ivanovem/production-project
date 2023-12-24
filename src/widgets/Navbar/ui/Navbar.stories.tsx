@@ -5,6 +5,7 @@ import 'app/styles/index.scss'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
 import { Navbar } from './Navbar'
+import {StoreDecorator} from "shared/config/storybook/StoreDecorator/StoreDecorator";
 
 const meta = {
     title: 'widget/Navbar',
@@ -26,11 +27,20 @@ export const Light: Story = {
 
     }
 }
-
+Light.decorators = [StoreDecorator({})]
 export const Dark: Story = {
     args: {
 
     }
 }
+Dark.decorators = [ThemeDecorator(Theme.DARK),StoreDecorator({})]
 
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+export const AuthNavbar: Story = {
+    args: {
+
+    }
+}
+AuthNavbar.decorators = [StoreDecorator({
+    user: {authData: {}}
+})]
+

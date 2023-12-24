@@ -1,4 +1,4 @@
-import webpack from 'webpack'
+import webpack, {DefinePlugin} from 'webpack'
 import {  RuleSetRule } from 'webpack'
 import { type BuildPaths } from '../build/types/config'
 import path from 'path'
@@ -28,6 +28,10 @@ export default ({ config }: { config: webpack.Configuration }) => {
     })
 
     config.module.rules.push(buildCssLoader(true))
+
+    config.plugins.push(new DefinePlugin({
+        __IS_DEV__: true
+    }))
 
     return config
 }

@@ -17,7 +17,7 @@ export const LangSwticher = ({ className, short }: LangSwticherProps) => {
 
     return (
         <Button className={classNames('', {}, [className])}
-            theme={ButtonTheme.CLEAR}
+            theme={ButtonTheme.CLEAR_INVERTED}
             onClick={toggle}
         >
             {t(short ? 'Короткий язык' : 'Язык' )}

@@ -3,6 +3,7 @@ import React from 'react'
 
 import 'app/styles/index.scss'
 import {LoginForm} from "./LoginForm";
+import {StoreDecorator} from "shared/config/storybook/StoreDecorator/StoreDecorator";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -30,3 +31,25 @@ export const Primary: Story = {
 
     }
 }
+
+Primary.decorators = [StoreDecorator({
+    loginForm: {username: '123', password:'asd'}
+})]
+
+export const withError: Story = {
+    args: {
+
+    }
+}
+withError.decorators = [StoreDecorator({
+    loginForm: {username: '123', password:'asd', error: 'ERROR'}
+})]
+
+export const Loading: Story = {
+    args: {
+
+    }
+}
+Loading.decorators = [StoreDecorator({
+    loginForm: {isLoading: true}
+})]
