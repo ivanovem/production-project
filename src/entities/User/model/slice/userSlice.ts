@@ -8,7 +8,7 @@ const initialState:UserSchema  = {}
 
 export const userSlice = createSlice({
     name: 'user',
-    initialState,
+    initialState: initialState as UserSchema,
     reducers: {
         setAuthData: (state, action: PayloadAction<User>) => {
             state.authData = action.payload;
@@ -20,6 +20,7 @@ export const userSlice = createSlice({
             }
         },
         logout: (state) => {
+            console.log(state)
             state.authData = undefined;
             localStorage.removeItem(USER_LOCALSTORAGE_KEY)
         }

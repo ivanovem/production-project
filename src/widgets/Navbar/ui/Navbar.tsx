@@ -29,22 +29,22 @@ export const Navbar = ({ className }: NavbarProps): JSX.Element => {
     }, [])
 
     const onLogout = useCallback(()=>{
-        dispatch(userActions.logout)
+        dispatch(userActions.logout())
     }, [dispatch])
-    console.log(authData);
-    // if (authData) {
-    //     return(
-    //         <div className={classNames(cls.Navbar, {}, [className])}>
-    //             <Button
-    //                 theme={ButtonTheme.CLEAR_INVERTED}
-    //                 className={cls.links}
-    //                 onClick={onLogout}
-    //             >
-    //                 {t('Выйти')}
-    //             </Button>
-    //         </div>
-    //         )
-    // }
+    // console.log(authData);
+    if (authData) {
+        return(
+            <div className={classNames(cls.Navbar, {}, [className])}>
+                <Button
+                    theme={ButtonTheme.CLEAR_INVERTED}
+                    className={cls.links}
+                    onClick={onLogout}
+                >
+                    {t('Выйти')}
+                </Button>
+            </div>
+            )
+    }
 
     return (
         <div className={classNames(cls.Navbar, {}, [className])}>
