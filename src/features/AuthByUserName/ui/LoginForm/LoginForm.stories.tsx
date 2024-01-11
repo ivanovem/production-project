@@ -2,7 +2,7 @@ import type {Meta, StoryObj} from '@storybook/react'
 import React from 'react'
 
 import 'app/styles/index.scss'
-import {LoginForm} from "./LoginForm";
+import LoginForm from "./LoginForm";
 import {StoreDecorator} from "shared/config/storybook/StoreDecorator/StoreDecorator";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export

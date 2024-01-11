@@ -26,6 +26,7 @@ export const Navbar = ({ className }: NavbarProps): JSX.Element => {
 
     const onShowModal = useCallback(()=>{
         setIsAuthModal(true)
+
     }, [])
 
     const onLogout = useCallback(()=>{
@@ -47,6 +48,7 @@ export const Navbar = ({ className }: NavbarProps): JSX.Element => {
     }
 
     return (
+
         <div className={classNames(cls.Navbar, {}, [className])}>
 
             <Button
@@ -56,10 +58,10 @@ export const Navbar = ({ className }: NavbarProps): JSX.Element => {
             >
                 {t('Войти')}
             </Button>
-            <LoginModal
+            {isAuthModal && <LoginModal
                 isOpen={isAuthModal}
                 onClose={onCloseModal}
-            />
+            />}
         </div>
     )
 }
