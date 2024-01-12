@@ -13,7 +13,7 @@ import React from "react";
 import {ReduxStoreWithManager} from "app/providers/StoreProvider/config/StateSchema";
 import {getLoginUsername} from "../../model/selectors/getLoginUsername/getLoginUsername";
 import {getLoginPassword} from "../../model/selectors/getLoginPassword/getLoginPassword";
-import {getLoginIsloading} from "../../model/selectors/getLoginIsLoading/getLoginIsloading";
+import {getLoginIsLoading} from "src/features/AuthByUserName/model/selectors/getLoginIsLoading/getLoginIsLoading";
 import {getLoginError} from "../../model/selectors/getLoginError/getLoginError";
 import {DynamicModuleLoader, ReducersList} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 
@@ -36,7 +36,7 @@ const LoginForm = memo(({className}: LoginFormProps) => {
 
     const username = useSelector(getLoginUsername);
     const password = useSelector(getLoginPassword);
-    const isLoading = useSelector(getLoginIsloading);
+    const isLoading = useSelector(getLoginIsLoading);
     const error = useSelector(getLoginError)
 
 
