@@ -13,23 +13,25 @@ import React from "react";
 import {ReduxStoreWithManager} from "app/providers/StoreProvider/config/StateSchema";
 import {getLoginUsername} from "../../model/selectors/getLoginUsername/getLoginUsername";
 import {getLoginPassword} from "../../model/selectors/getLoginPassword/getLoginPassword";
-import {getLoginIsLoading} from "src/features/AuthByUserName/model/selectors/getLoginIsLoading/getLoginIsLoading";
+import {getLoginIsLoading} from "../../model/selectors/getLoginIsLoading/getLoginIsLoading";
 import {getLoginError} from "../../model/selectors/getLoginError/getLoginError";
 import {DynamicModuleLoader, ReducersList} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 export interface LoginFormProps {
     className?: string;
     backgroundColor?: string
+    onSucces: () => void
 }
 
 const initialReducers: ReducersList = {
     loginForm: loginReducer,
 }
 
-const LoginForm = memo(({className}: LoginFormProps) => {
+const LoginForm = memo(({className, onSucces}: LoginFormProps) => {
 
     const {t} = useTranslation()
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
 
     // const {username, password, error, isLoading} = useSelector(getLoginState)
@@ -52,9 +54,12 @@ const LoginForm = memo(({className}: LoginFormProps) => {
         dispatch(loginActions.setPassword(value))
     }, [dispatch])
 
-    const onLoginClick = useCallback(() => {
-        dispatch(loginByUsername({username, password}))
-    }, [dispatch, password, username])
+    const onLoginClick = useCallback(async () => {
+        const result = await dispatch(loginByUsername({username, password}))
+        if (result.meta.requestStatus === 'fulfilled') {
+            onSucces()
+        }
+    }, [onSucces, dispatch, password, username])
 
     return (
 
