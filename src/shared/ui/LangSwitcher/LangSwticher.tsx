@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
-import React from 'react'
+import React, {memo} from 'react'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 
 interface LangSwticherProps {
@@ -8,7 +8,7 @@ interface LangSwticherProps {
     short?: boolean
 }
 
-export const LangSwticher = ({ className, short }: LangSwticherProps) => {
+export const LangSwticher = memo(({ className, short }: LangSwticherProps) => {
     const { t, i18n } = useTranslation('')
 
     const toggle = () => {
@@ -23,4 +23,4 @@ export const LangSwticher = ({ className, short }: LangSwticherProps) => {
             {t(short ? 'Короткий язык' : 'Язык' )}
         </Button>
     )
-}
+})
