@@ -7,10 +7,12 @@ import { Sidebar } from 'widgets/Sidebar'
 import {Modal} from "shared/ui/Modal/Modal";
 import {useDispatch} from "react-redux";
 import {userActions} from "entities/User";
+import {useNavigate} from "react-router-dom";
 
 const App = () => {
     const { theme } = useTheme()
     const dispatch = useDispatch()
+
     useEffect( ()=> {
         dispatch(userActions.initAuthData())
     }, [dispatch])

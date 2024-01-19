@@ -4,6 +4,10 @@ module.exports = {
         es2021: true,
         jest: true
     },
+    globals: {
+        __IS_DEV__: true,
+        __API__: true
+    },
     extends: ['standard-with-typescript', 'plugin:react/recommended', 'plugin:storybook/recommended'],
     overrides: [
         {
