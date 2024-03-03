@@ -32,7 +32,6 @@ export const Navbar = memo(({ className }: NavbarProps): JSX.Element => {
     const onLogout = useCallback(()=>{
         dispatch(userActions.logout())
     }, [dispatch])
-    // console.log(authData);
     if (authData) {
         return(
             <div className={classNames(cls.Navbar, {}, [className])}>

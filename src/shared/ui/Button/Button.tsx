@@ -7,6 +7,7 @@ export enum ButtonTheme {
     CLEAR = 'clear',
     CLEAR_INVERTED = 'clearInverted',
     OUTLINE = 'outline',
+    OUTLINE_RED = 'outline_red',
     BACKGROUND = 'background',
     BACKGROUND_INVERTED = 'backgroundInverted',
 }
@@ -18,10 +19,10 @@ export enum ButtonSize {
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    className?: string
-    theme?: ButtonTheme
-    square?: boolean
-    backgroundColor?: string
+    className?: string,
+    theme?: ButtonTheme,
+    square?: boolean,
+    backgroundColor?: string,
     size?: ButtonSize,
     disabled?: boolean,
     children?: ReactNode
@@ -41,7 +42,7 @@ export const Button= memo((props:ButtonProps) => {
     const mods: Mods = {
         [cls[theme]]: true,
         [cls.square]: square,
-        [cls[size]]: true,
+        // [cls[size]]: true,
         [cls.disabled]: disabled
     }
 
