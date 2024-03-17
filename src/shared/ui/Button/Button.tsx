@@ -35,14 +35,14 @@ export const Button= memo((props:ButtonProps) => {
         theme = ButtonTheme.OUTLINE,
         square,
         disabled,
-        size,
+        size = ButtonSize.M,
         ...otherProps
     } = props
 
     const mods: Mods = {
         [cls[theme]]: true,
         [cls.square]: square,
-        // [cls[size]]: true,
+        [cls[size]]: true,
         [cls.disabled]: disabled
     }
 

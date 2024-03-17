@@ -26,10 +26,10 @@
     }
   ],
   "profile": {
-    "first": "",
+    "first": "Evgeniy",
     "lastname": "Ivanov",
     "age": 34,
-    "currency": "RUB",
+    "currency": "USD",
     "country": "Russia",
     "city": "Ekaterinburg",
     "username": "admin",
